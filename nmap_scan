@@ -17,8 +17,12 @@ for ip in "$@"; do
         ports=$(grep '^[0-9]' "${ip}_nmap_all_ports.txt" | cut -d'/' -f1 | tr '\n' ',' | sed 's/,$//')
 
         echo "-----------------------------------------"
-        echo "Ports TCP: $ports "
+
+        echo "```results"
         echo "To $ip results"
+        echo "Ports TCP: $ports "
+        echo "```"
+
         echo "-----------------------------------------"
         nmap -Pn $ip -sV -sC -A -v -p$ports  -oN "${ip}_nmap_complete.txt"
 
