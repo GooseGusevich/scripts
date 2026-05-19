@@ -18,10 +18,10 @@ for ip in "$@"; do
 
         echo "-----------------------------------------"
 
-        echo "```results"
         echo "To $ip results"
+        echo '```results'
         echo "Ports TCP: $ports "
-        echo "```"
+        echo '```'
 
         echo "-----------------------------------------"
         nmap -Pn $ip -sV -sC -A -v -p$ports  -oN "${ip}_nmap_complete.txt"
